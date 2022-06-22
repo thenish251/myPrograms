@@ -1,0 +1,20 @@
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        int max = 0;
+        for (int n : nums) {
+            if (n > max) max = n;
+        }
+        
+        BitSet bitSet = new BitSet(max);
+        
+        for (int n : nums) {
+            if(n > 0) bitSet.set(n);
+        }
+        
+        for (int i = 1; i <= max; i ++) {
+            if (!bitSet.get(i)) return i;
+        }
+        
+        return max + 1;
+    }
+}
