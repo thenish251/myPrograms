@@ -1,0 +1,24 @@
+int shortestDistance(vector<string> &s, string word1, string word2)
+{
+     // Your code goes here
+          int f=0,ss=0;
+          int ans=INT_MAX;
+          bool first=false,sec=false;
+ 
+         for(int i=0;i<s.size();i++){
+             if(s[i]==word1){
+                  f=i;
+                  first=1;
+
+         }
+         if(s[i]==word2){
+             ss=i;
+             sec=1;
+         }
+        if( first and sec){
+            ans=min(ans,abs(f-ss));
+          }
+    }
+   return ans;
+}
+};
